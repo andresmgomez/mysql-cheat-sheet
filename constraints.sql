@@ -1,0 +1,55 @@
+-- CONSTRAINTS: RULES FOR CREATE TABLES
+-- NOT NULL: SPECIFIC COLUMN MUST HAVE A VALUE
+CREATE TABLE Vendors(
+   VendorId INT NOT NULL,
+   VendorName TEXT NOT NULL,
+   VendorAddress TEXT NOT NULL
+);
+
+-- UNIQUE: EVERY VALUE IN A ROW MUST BE DIFFERENT
+CREATE TABLE Shipping(
+   ShippingId INT NOT NULL,
+   ShippingAddress TEXT NOT NULL,
+   CONSTRAINT ShippingProduct UNIQUE (ShippingId, ShippingAddress)
+);
+-- PRIMARY KEY: IDENTIFY EACH COLUMN IN A TABLE
+CREATE TABLE COMPANIES(
+   CompanyId: NOT NULL,
+   CompanyName TEXT UNIQUE,
+   CompanyAddress TEXT,
+   CompanyContact INT,
+   CONSTRAINT Company PRIMARY KEY (CompanyId, CompanyName)
+);
+-- FOREIGN KEY: LINK INFORMATION IN A TABLE TO ANOTHER
+CREATE TABLE Orders(
+   OrderId INT NOT NULL AUTO_INCREMENT,
+   OrderDate DATE,
+   OrderTime TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+   OrderNumber INT,
+   CompanyId INT NOT NULL,
+   PRIMARY KEY (OrderId),
+   FOREIGN KEY (CompanyId) REFERENCES Companies(CompanyId)
+);
+-- CHECK: SET A RANGE OF VALUES FOR A COLUMN IN A TABLE
+CREATE TABLE Persons(
+   PersonId NOT NULL,
+   PersonDOB DATE,
+   PersonHeight DECIMAL(1,1),
+   PersonWeight INT NOT NULL,
+   PersonAge INT,
+   CONSTRAINT ValidPerson CHECK (PersonAge >= 18 AND PersonWeight > 125)
+);
+
+-- DEFAULT: SET A COMMON VALUE FOR ROW IN A TABLE
+CREATE TABLE Inventory(
+   InventoryId INT NOT NULL,
+   InventoryStock INT DEFAULT 50,
+   InventoryLocation TEXT "Miami, FL"
+);
+
+ALTER TABLE Inventory
+ALTER InventoryLocation SET DEFAULT "Dallas, TX"
+
+-- CREATE INDEX: MAKE EFFICIENT A COMMON QUERY
+CREATE UNIQUE INDEX Identity
+ON Persons(PersonDOB, PersonAge, PersonHeight) 
