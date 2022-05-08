@@ -2,7 +2,7 @@
 CREATE DATABASE eCommerce
 
 -- REMOVE DATABASE (WARNING)
-DROP DATABASE eCcommerce
+DROP DATABASE eCommerce
 
 -- ADD NEW TABLE
 CREATE TABLE Products (
@@ -58,9 +58,3 @@ CREATE TABLE Inventory(
    InventoryDispatch TIMESTAMP,
    InventoryHistory YEAR,
 );
-
-
-
-
-
-
