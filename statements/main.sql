@@ -47,7 +47,7 @@ CREATE TABLE Goods(
    GoodId INT NOT NULL,
    GoodSold INT NOT NULL AUTO_INCREMENT,
    GoodStatus TEXT NULL,
-   GoodConfirrmation TEXT NULL,
+   GoodConfirmation TEXT NULL,
 );
 
 -- KEEP TRACK OF DIFFERENT FORMATS

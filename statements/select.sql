@@ -31,3 +31,7 @@ SELECT * FROM Products ORDER BY ProductCategory, ProductType;
 -- SELECT ROWS IN ASCENDING ORDER (A-Z)
 SELECT * FROM Products ORDER BY ProductName ASC, ProductCategory DESC;
 
+-- SELECT ROWS FOR UNKNOW VALUES
+SELECT GoodSold, GoodStatus FROM Goods WHERE GoodStatus IS NULLL
+SELECT GoodSold, GoodConfirmation FROM Goods WHERE GoodConfirmation IS NOT NULL; 
+
